@@ -1,8 +1,6 @@
 package ec.java.utbildning;
 
 import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
 
 public class Solutions {
 
@@ -73,7 +71,6 @@ public class Solutions {
     public StringBuilder languageTransformerTwo(StringBuilder langInput) {
         StringBuilder output = new StringBuilder();
         String[] langArr = langInput.toString().split(" ");
-        String val = "";
         for (int c = 0; c < langArr.length; c++) {
             output.append(langTransformHelperTwo(langArr[c]) + " ");
         }
@@ -105,16 +102,19 @@ public class Solutions {
     }
 
     public int whatSquare(int inputNum) {
-        int initialStep = 1;
-        int counter = 1;
-        while (inputNum > initialStep) {
-            if (!(initialStep * 2 > inputNum)) {
-                initialStep = initialStep * 2;
-                counter++;
-            } else {
-                break;
+        if (inputNum > 0) {
+            int initialStep = 1;
+            int counter = 1;
+            while (inputNum > initialStep) {
+                if (!(initialStep * 2 > inputNum)) {
+                    initialStep = initialStep * 2;
+                    counter++;
+                } else {
+                    break;
+                }
             }
+            return counter;
         }
-        return counter;
+        return 0;
     }
 }
